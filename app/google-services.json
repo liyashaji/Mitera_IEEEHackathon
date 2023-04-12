@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "366985881370",
+    "project_id": "mitera-73a4a",
+    "storage_bucket": "mitera-73a4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366985881370:android:0de67d70025b34ba316ea3",
+        "android_client_info": {
+          "package_name": "com.summerhack.mitera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366985881370-e45sgbvjfjcubu19n4g1g7gns38fpebo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4n6pRehyTzpQAV_MN0OUM6F9BWYNS958"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366985881370-e45sgbvjfjcubu19n4g1g7gns38fpebo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

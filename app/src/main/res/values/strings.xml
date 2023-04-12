@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Mitera</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">About</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="infopage">InfoPage</string>
+    <string name="title_activity_profiile_fragment">ProfiileFragment</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="about_section">
+        Postpartum depression (PPD) \n is a form of clinical depression
+        that affects women after giving birth.
+        It typically occurs within \nthe first few weeks or months after delivery,
+        although it can develop at any point during the first year after giving birth.
+        PPD is different from the "baby blues," which is a mild, temporary
+        mood disorder that many women experience after giving birth.\n\n\n
+        PPD is characterized by feelings of \n
+        sadness, hopelessness, guilt, and worthlessness,
+        as well as physical symptoms such as fatigue,\n
+        sleep disturbances, and appetite changes.
+        Other symptoms may include irritability, anxiety, difficulty concentrating,
+        and thoughts of self-harm or harming the baby.\n
+        PPD can make it difficult for women to bond with their babies.\n\n\n
+        PPD is a serious condition that requires medical attention,
+        and it can be treated with therapy, medication, or a combination of both.\n
+        It\'s important for women to seek help
+        if they\'re experiencing symptoms of PPD,
+        as early treatment can\n
+        help improve outcomes for both
+        the mother and the baby.\n\n\n
+
+
+
+
+
+
+    </string>
+</resources>
