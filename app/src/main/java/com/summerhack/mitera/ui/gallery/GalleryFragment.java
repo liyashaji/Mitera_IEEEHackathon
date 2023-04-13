@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -83,10 +84,12 @@ public class GalleryFragment extends Fragment {
         //galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
          adapter= new MyAdapter(chats,getContext(),mauth.getCurrentUser());
-        binding.chatRecyclerView.setVisibility(View.VISIBLE);
-        binding.progressBar.setVisibility(View.GONE);
-        binding.chatRecyclerView.setAdapter(adapter);
 
+
+        binding.chatRecyclerView.setAdapter(adapter);
+        binding.chatRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        adapter.notifyDataSetChanged();
 
         return root;
     }

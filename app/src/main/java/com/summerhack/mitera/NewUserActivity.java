@@ -18,8 +18,9 @@ import java.util.UUID;
 
 public class NewUserActivity extends AppCompatActivity {
     ActivityNewUserBinding binding;
-    private String name,phone,email,address,age;
+    private String name,phone,email,address,age,pass;
     private String id;
+    FirebaseAuth mauth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,17 +33,26 @@ public class NewUserActivity extends AppCompatActivity {
             address = binding.etaddressCr.getText().toString();
             email = binding.etemailCr.getText().toString();
             age = binding.etAge.getText().toString();
-            FirebaseAuth.getInstance()
-                    .createUserWithEmailAndPassword(email,binding.etpassCr.getText().toString())
+            pass = binding.etpassCr.getText().toString();
+            mauth = FirebaseAuth.getInstance();
+            mauth
+                    .createUserWithEmailAndPassword(email,pass)
                     .addOnSuccessListener(authResult -> {
-                        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                        id = currentUser.getUid();
-                        User newuser = new User(name,phone,address,email,id,age);
-                        FirebaseDatabase.getInstance().getReference("Users").child(id).setValue(newuser)
-                                .addOnSuccessListener(unused -> {
-                                    startActivity(new Intent(getApplicationContext(),HomeActivity.class));
-                                    finish();
-                                });
+                        mauth.signInWithEmailAndPassword(email,pass).addOnSuccessListener(
+                                succes->{
+
+                                    FirebaseUser currentUser = succes.getUser();
+
+                                    id = currentUser.getUid();
+                                    User newuser = new User(name,phone,address,email,id,age);
+                                    FirebaseDatabase.getInstance().getReference("Users").child(id).setValue(newuser)
+                                            .addOnSuccessListener(unused -> {
+                                                startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+                                                finish();
+                                            });
+                                }
+                        );
+
                     });
         });
     }

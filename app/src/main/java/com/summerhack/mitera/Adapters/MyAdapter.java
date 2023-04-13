@@ -12,9 +12,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
 import com.summerhack.mitera.Model.Chat;
+import com.summerhack.mitera.Model.User;
 import com.summerhack.mitera.R;
 
 import java.util.List;
@@ -56,15 +60,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Chat item = items.get(position);
-        holder.titleTextView.setText(item.getId());
+
+        FirebaseDatabase.getInstance().getReference("Users").child(item.getId()).child("name").get().addOnSuccessListener(
+                new OnSuccessListener<DataSnapshot>() {
+                    @Override
+                    public void onSuccess(DataSnapshot dataSnapshot) {
+                       String user = dataSnapshot.getValue(String.class);
+                        holder.titleTextView.setText(user);
+                    }
+                }
+        );
+
         holder.descTextView.setText(item.getMsg());
         if(item.getId().equals(currentUser.getUid())){
             holder.itemView.setPadding(100,0,0,0);
-
+            holder.itemView.findViewById(R.id.chatback).setBackground(context.getResources().getDrawable(R.drawable.bg_recieved_message));
         }
 
         else {
             holder.itemView.setPadding(0,0,0,0);
+            holder.itemView.findViewById(R.id.chatback).setBackground(context.getResources().getDrawable(R.drawable.bg_sent_message));
 
         }
     }
