@@ -3,7 +3,10 @@ package com.summerhack.mitera;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +23,7 @@ public class ProfileActivity extends AppCompatActivity {
     DatabaseReference dbref;
     FirebaseAuth mauth;
     User curuser;
+    Button busym;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,13 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(getApplicationContext(),"error loading database",Toast.LENGTH_SHORT).show();
+            }
+        });
+        busym = binding.busym;
+        busym.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),SymptomsActivity.class));
             }
         });
 
